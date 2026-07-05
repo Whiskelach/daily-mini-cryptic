@@ -1,1 +1,1 @@
-# daily-mini-cryptic
+# monthly-mini-cryptic
