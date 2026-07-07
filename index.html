@@ -785,6 +785,9 @@ editorHelper.style.display = "block";
         const key = `${cell.r}-${cell.c}`;
         const isBlock = cell.solution === "#";
         const entered = letters[key] || "";
+        const displayValue = submitted && !isBlock && entered !== cell.solution
+  ? cell.solution
+  : entered;
 
         const div = document.createElement("div");
         div.className = "cell";
@@ -807,7 +810,7 @@ editorHelper.style.display = "block";
         if (!isBlock) {
           const input = document.createElement("input");
           input.maxLength = 1;
-          input.value = entered;
+          input.value = displayValue;
           input.disabled = submitted;
           input.setAttribute("aria-label", `Row ${cell.r + 1}, column ${cell.c + 1}`);
 
